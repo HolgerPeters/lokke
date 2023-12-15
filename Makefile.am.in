@@ -167,6 +167,7 @@ mod_scm_srcs = \
   mod/lokke/base/util.scm \
   mod/lokke/base/version.scm \
   mod/lokke/boot.scm \
+  mod/lokke/borrowed/repl.scm \
   mod/lokke/collection.scm \
   mod/lokke/compare.scm \
   mod/lokke/compat.scm \
