@@ -11,8 +11,10 @@
 (define (ensure-dir path)
   (catch 'system-error
     (lambda ()
-      (unless (zero? (status:exit-val (system* "mkdir" "-p" path)))
-        (error "Unable to create" path))
+      (let [[result (status:exit-val (system* "mkdir" "-p" path))]]
+        (unless (zero? result)
+          ;(error "Unable to create" path "with" result)
+          (format (current-error-port) "Unable to create ~s" path)))
       path)
     (lambda (key fname fmt-pattern fmt-args info)
       (unless (= EEXIST (car info))
